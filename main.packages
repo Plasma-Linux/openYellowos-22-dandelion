@@ -37,4 +37,7 @@ ufw
 rsync
 task-desktop
 task-laptop
+flatpak
+curl
+wget
 
