@@ -66,8 +66,12 @@ usermod -aG nopasswdlogin live
 chmod 440 /etc/sudoers
 
 # enable firewall
+ufw default deny
 ufw enable
 
 # install Floorp
 curl https://sda1.net/storage/floorp/floorp_install.sh | sudo bash && curl https://sda1.net/storage/floorp/floorp_install.sh | sudo bash
 apt purge -y firefox-esr
+
+# update dconf
+dconf update
