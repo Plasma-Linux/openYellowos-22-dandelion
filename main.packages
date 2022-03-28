@@ -31,7 +31,6 @@ xorg
 xserver-xorg-video-all
 xwayland
 task-gnome-desktop
-firefox-esr
 pulseaudio
 ufw
 rsync
