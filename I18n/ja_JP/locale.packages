@@ -1,4 +1,8 @@
+fonts-ipafont
+fonts-vlgothic
+ibus
+ibus-mozc
+mozc-utils-gui
+poppler-data
 task-japanese
-task-japanese-desktop
-task-japanese-gnome-desktop
 
