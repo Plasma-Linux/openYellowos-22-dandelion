@@ -54,7 +54,7 @@ rm -r /var/cache/apt/*
 
 # enable services
 ln -fs /usr/lib/systemd/system/NetworkManager.service /etc/systemd/system/network.service
-systemctl enable NetworkManager
+#systemctl enable NetworkManager
 
 ln -fs /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target
 
