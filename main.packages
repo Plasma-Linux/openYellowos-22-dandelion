@@ -40,9 +40,15 @@ firmware-siano
 firmware-ti-connectivity
 flatpak
 fonts-cantarell
+fonts-ipaexfont
+fonts-ipaexfont-gothic
+fonts-ipaexfont-mincho
 fonts-noto-cjk
 fonts-noto-mono
 fonts-symbola
+fonts-takao
+fonts-takao-gothic
+fonts-takao-mincho
 gdm3
 gimp
 gkbd-capplet
@@ -56,7 +62,6 @@ gnome-menus
 gnome-multi-writer
 gnome-online-accounts
 gnome-online-miners
-gnome-remote-desktop
 gnome-session
 gnome-settings-daemon
 gnome-shell
@@ -100,9 +105,11 @@ libpam-gnome-keyring
 libproxy1-plugin-gsettings
 libproxy1-plugin-networkmanager
 libproxy1-plugin-webkit
+libpython3.9
 librsvg2-common
 libspa-0.2-bluetooth
 linux-image-amd64
+locales-all
 nano
 nautilus
 netbase
