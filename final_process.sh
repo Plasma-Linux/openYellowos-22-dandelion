@@ -14,8 +14,17 @@ echo "Configure image: [${kiwi_iname}]..."
 # in the image description effective needs to be done.
 #
 # Setup system locale
-echo "LANG=${kiwi_language}" > /etc/locale.conf
-
+#echo "LANG=${kiwi_language}" > /etc/locale.conf
+echo "LANG=ja_JP.UTF-8" > /etc/locale.conf
+echo "LC_ADDRESS=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_IDENTIFICATION=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_MEASUREMENT=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_MONETARY=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_NAME=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_NUMERIC=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_PAPER=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_TELEPHONE=ja_JP.UTF-8" >> /etc/locale.conf
+echo "LC_TIME=ja_JP.UTF-8" >> /etc/locale.conf
 
 # Setup system keymap
 echo "KEYMAP=${kiwi_keytable}" > /etc/vconsole.conf
@@ -36,11 +45,11 @@ echo "UTC" >> /etc/adjtime
 
 
 # Disable systemd NTP timesync
-baseRemoveService systemd-timesyncd
+#baseRemoveService systemd-timesyncd
 
 
 # Enable firstboot resolv.conf setting
-baseInsertService symlink-resolvconf
+#baseInsertService symlink-resolvconf
 
 
 # Setup default target, multi-user
@@ -72,6 +81,24 @@ ufw enable
 # install Floorp
 curl https://sda1.net/storage/floorp/floorp_install.sh | sudo bash && curl https://sda1.net/storage/floorp/floorp_install.sh | sudo bash
 apt purge -y firefox-esr
+
+# Software & Update Delete
+rm /usr/share/applications/software-properties-gnome.desktop
+rm /usr/share/applications/software-properties-gtk.desktop
+
+# gnome-mimeapps.list edit
+echo text/html=org.ablaze.floorp.desktop >> /usr/share/applications/gnome-mimeapps.list
+echo application/xhtml+xml=org.ablaze.floorp.desktop >> /usr/share/applications/gnome-mimeapps.list
+echo application/rss+xml=org.ablaze.floorp.desktop >> /usr/share/applications/gnome-mimeapps.list
+echo application/rdf+xml=org.ablaze.floorp.desktop >> /usr/share/applications/gnome-mimeapps.list
+echo x-scheme-handler/http=org.ablaze.floorp.desktop >> /usr/share/applications/gnome-mimeapps.list
+echo x-scheme-handler/https=org.ablaze.floorp.desktop >> /usr/share/applications/gnome-mimeapps.list
+
+# gnome MIME type cacheDB update
+update-desktop-database
+
+# disable GDM logo
+sudo -u gdm gsettings set org.gnome.login-screen logo ''
 
 # update dconf
 dconf update
