@@ -63,7 +63,7 @@ rm -r /var/cache/apt/*
 
 # enable services
 ln -fs /usr/lib/systemd/system/NetworkManager.service /etc/systemd/system/network.service
-#systemctl enable NetworkManager
+systemctl enable NetworkManager
 
 ln -fs /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target
 
@@ -97,8 +97,11 @@ echo x-scheme-handler/https=org.ablaze.floorp.desktop >> /usr/share/applications
 # gnome MIME type cacheDB update
 update-desktop-database
 
-# disable GDM logo
-sudo -u gdm gsettings set org.gnome.login-screen logo ''
+# GDM logo
+# sudo -u gdm gsettings set org.gnome.login-screen logo ''
 
 # update dconf
 dconf update
+
+# update grub
+update-grub
