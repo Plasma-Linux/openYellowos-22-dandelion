@@ -100,6 +100,10 @@ update-desktop-database
 # GDM logo
 # sudo -u gdm gsettings set org.gnome.login-screen logo ''
 
+# liveユーザーに管理者権限を付与
+addgroup wheel
+usermod -aG wheel live
+
 # update dconf
 dconf update
 
