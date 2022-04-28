@@ -5,6 +5,8 @@ at-spi2-core
 avahi-daemon
 bluetooth
 btrfs-progs
+clamtk
+clamtk-gnome
 cups
 cups-pk-helper
 curl
